@@ -24,49 +24,6 @@
             font-family: 'Great Vibes', cursive;
         }
 
-        /* Custom CSS for the timeline year badge */
-        .timeline-year-badge {
-            position: absolute;
-            /* Default position for mobile, adjusted for better visibility */
-            left: -80px; 
-            top: 0; /* Align with the top of the timeline item */
-            transform: translateY(-50%); /* Vertically center the badge on the timeline dot */
-            background-color: #a32a2a; /* Red background */
-            color: white; /* White text */
-            padding: 4px 8px; /* Smaller padding for mobile */
-            border-radius: 9999px; /* Fully rounded corners */
-            font-weight: bold;
-            font-size: 0.8rem; /* Slightly smaller font for the year on mobile */
-            z-index: 15; /* Ensure it's above other elements */
-            white-space: nowrap; /* Prevent text wrapping */
-            min-width: 60px; /* Ensure consistent width for years */
-            text-align: center;
-        }
-
-        /* Responsive adjustments for larger screens */
-        @media (min-width: 768px) { /* md breakpoint */
-            .timeline-year-badge {
-                left: -100px; /* Original position for larger screens */
-                padding: 6px 12px; /* Original padding */
-                font-size: 0.9rem; /* Original font size */
-                min-width: 70px; /* Original min-width */
-            }
-        }
-
-        /* Styling for the timeline item's circular marker */
-        .timeline-item::before {
-            content: ''; /* Required for pseudo-elements */
-            position: absolute; /* Absolute positioning relative to parent */
-            /* Adjusted for mobile to align with the new timeline margin */
-            left: -20px; 
-            top: 0; /* Align with the top of the item */
-            width: 20px; /* Size of the circle */
-            height: 20px; /* Size of the circle */
-            border-radius: 50%; /* Makes it a perfect circle */
-            background-color: #a32a2a; /* Red color for the circle */
-            border: 4px solid #fdfcfb; /* White border to create a halo effect */
-            z-index: 10; /* Ensures it's above other elements */
-        }
         /* Custom shadow and transition for cards */
         .card-shadow {
             box-shadow: 0 8px 25px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04); /* Soft shadow */
@@ -136,94 +93,81 @@
         </header>
 
         <main>
-            <!-- Timeline Section -->
-            <!-- The timeline is created using a left border and absolutely positioned pseudo-elements for markers -->
-            <!-- Adjusted ml for better mobile responsiveness -->
-            <div class="relative border-l-2 border-red-800/50 ml-10 md:ml-32"> 
+            <!-- Timeline Section - Now a series of cards -->
+            <div class="max-w-4xl mx-auto space-y-16"> 
                 
                 <!-- Milestone 1: Lakeshore -->
-                <div class="mb-16 pl-12 relative timeline-item fade-in">
-                    <!-- Year badge positioned to the left of the timeline line -->
-                    <div class="timeline-year-badge">2017</div> 
-                    <div class="bg-white p-6 rounded-xl card-shadow">
-                        <h3 class="font-playfair text-2xl font-bold text-gray-900">A Path Chosen: Lakeshore Hospital</h3>
-                        <p class="mt-2 text-gray-600">Began the demanding journey into Critical Care at <span class="font-semibold">Lakeshore Hospital, Ernakulam</span>, starting her <span class="font-semibold">CTCCM</span> certification and laying the foundation of her specialization.</p>
-                        <!-- Image gallery for Lakeshore memories -->
-                        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                            <img src="https://i.postimg.cc/PJ92qGzv/Lakeshore-time-1.jpg" alt="Lakeshore memories 1" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/XYwQnzZX/Lakeshore-time-5.jpg" alt="Lakeshore memories 5" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/3wY9NFp1/Lakeshore-Time-2.jpg" alt="Lakeshore memories 2" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/XZZ9MJPH/Lakeshore-time-3.jpg" alt="Lakeshore memories 3" class="rounded-lg gallery-img w-full h-full object-cover">
-                        </div>
+                <div class="bg-white p-6 rounded-xl card-shadow fade-in">
+                    <p class="font-bold text-red-800 text-lg mb-2">2017</p> 
+                    <h3 class="font-playfair text-2xl font-bold text-gray-900">A Path Chosen: Lakeshore Hospital</h3>
+                    <p class="mt-2 text-gray-600">Began the demanding journey into Critical Care at <span class="font-semibold">Lakeshore Hospital, Ernakulam</span>, starting her <span class="font-semibold">CTCCM</span> certification and laying the foundation of her specialization.</p>
+                    <!-- Image gallery for Lakeshore memories -->
+                    <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+                        <img src="https://i.postimg.cc/PJ92qGzv/Lakeshore-time-1.jpg" alt="Lakeshore memories 1" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/XYwQnzZX/Lakeshore-time-5.jpg" alt="Lakeshore memories 5" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/3wY9NFp1/Lakeshore-Time-2.jpg" alt="Lakeshore memories 2" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/XZZ9MJPH/Lakeshore-time-3.jpg" alt="Lakeshore memories 3" class="rounded-lg gallery-img w-full h-full object-cover">
                     </div>
                 </div>
 
                 <!-- Milestone 2: Motherhood -->
-                <div class="mb-16 pl-12 relative timeline-item fade-in">
-                    <div class="timeline-year-badge">2019</div>
-                    <div class="bg-white p-6 rounded-xl card-shadow">
-                        <h3 class="font-playfair text-2xl font-bold text-gray-900">A New Chapter: Our Family Begins</h3>
-                        <p class="mt-2 text-gray-600">Welcomed our beautiful daughter, Mili. Showcasing incredible dedication, she worked until just two days before delivery. This year marked the beautiful blend of professional ambition and personal joy.</p>
-                        <!-- Updated with the new, clearer image link -->
-                        <div class="mt-6 flex justify-center">
-                            <img src="https://i.postimg.cc/vTgtkqFY/we-as-a-family.jpg" alt="Our Family" class="rounded-lg gallery-img max-w-md w-full">
-                        </div>
+                <div class="bg-white p-6 rounded-xl card-shadow fade-in">
+                    <p class="font-bold text-red-800 text-lg mb-2">2019</p>
+                    <h3 class="font-playfair text-2xl font-bold text-gray-900">A New Chapter: Our Family Begins</h3>
+                    <p class="mt-2 text-gray-600">Welcomed our beautiful daughter, Mili. Showcasing incredible dedication, she worked until just two days before delivery. This year marked the beautiful blend of professional ambition and personal joy.</p>
+                    <!-- Updated with the new, clearer image link -->
+                    <div class="mt-6 flex justify-center">
+                        <img src="https://i.postimg.cc/vTgtkqFY/we-as-a-family.jpg" alt="Our Family" class="rounded-lg gallery-img max-w-md w-full">
                     </div>
                 </div>
                 
                 <!-- Milestone 3: KIMS -->
-                <div class="mb-16 pl-12 relative timeline-item fade-in">
-                    <div class="timeline-year-badge">2021</div>
-                    <div class="bg-white p-6 rounded-xl card-shadow">
-                        <h3 class="font-playfair text-2xl font-bold text-gray-900">Growth and Expertise: KIMS, Trivandrum</h3>
-                        <p class="mt-2 text-gray-600">Gained valuable experience at <span class="font-semibold">KIMS</span>, further honing her skills in the fast-paced world of critical care and building her confidence as a clinician.</p>
-                        <!-- Image gallery for KIMS memories - Adjusted to a consistent 3-column grid on larger screens -->
-                        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                            <img src="https://i.postimg.cc/VvdK1sMc/KIMS-Time-1.jpg" alt="KIMS memories 1" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/xCs6WNXR/KIMS-time-2.jpg" alt="KIMS memories 2" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/C1MvPsx5/KIMS-time-3.jpg" alt="KIMS memories 3" class="rounded-lg gallery-img w-full h-full object-cover">
-                        </div>
+                <div class="bg-white p-6 rounded-xl card-shadow fade-in">
+                    <p class="font-bold text-red-800 text-lg mb-2">2021</p>
+                    <h3 class="font-playfair text-2xl font-bold text-gray-900">Growth and Expertise: KIMS, Trivandrum</h3>
+                    <p class="mt-2 text-gray-600">Gained valuable experience at <span class="font-semibold">KIMS</span>, further honing her skills in the fast-paced world of critical care and building her confidence as a clinician.</p>
+                    <!-- Image gallery for KIMS memories - Adjusted to a consistent 3-column grid on larger screens -->
+                    <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <img src="https://i.postimg.cc/VvdK1sMc/KIMS-Time-1.jpg" alt="KIMS memories 1" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/xCs6WNXR/KIMS-time-2.jpg" alt="KIMS memories 2" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/C1MvPsx5/KIMS-time-3.jpg" alt="KIMS memories 3" class="rounded-lg gallery-img w-full h-full object-cover">
                     </div>
                 </div>
 
                 <!-- Milestone 4: Meitra -->
-                <div class="mb-16 pl-12 relative timeline-item fade-in">
-                    <div class="timeline-year-badge">2022-25</div>
-                    <div class="bg-white p-6 rounded-xl card-shadow">
-                        <h3 class="font-playfair text-2xl font-bold text-gray-900">Mastering the Craft: Meitra Hospital</h3>
-                        <p class="mt-2 text-gray-600">Spent three impactful years at <span class="font-semibold">Meitra Hospital, Calicut</span>, earning her <span class="font-semibold">IDCCM</span> diploma and leaving behind a team that adored her empathy, skill, and leadership.</p>
-                        <!-- Image gallery for Maitra memories - Adjusted for better flow with 16 images -->
-                        <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                            <img src="https://i.postimg.cc/wTYwnzvn/Meitra-time-1.jpg" alt="Maitra memories 1" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/kMbjjGnx/Whats-App-Image-2025-07-04-at-3-17-50-PM.jpg" alt="Maitra memories 2" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/1gxDQPZy/Whats-App-Image-2025-07-04-at-3-17-51-PM.jpg" alt="Maitra memories 3" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/ykbFLcQg/Whats-App-Image-2025-07-04-at-3-17-51-PM-1.jpg" alt="Maitra memories 4" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/BX6T5Mgf/Whats-App-Image-2025-07-04-at-3-17-51-PM-2.jpg" alt="Maitra memories 5" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/njp7Xkz5/Whats-App-Image-2025-07-04-at-3-17-52-PM.jpg" alt="Maitra memories 6" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/VSjnsTYn/Whats-App-Image-2025-07-04-at-3-17-53-PM.jpg" alt="Maitra memories 7" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/684CgqgH/Whats-App-Image-2025-07-04-at-3-17-53-PM-1.jpg" alt="Maitra memories 8" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/9wf7pQyY/Whats-App-Image-2025-07-04-at-3-17-54-PM.jpg" alt="Maitra memories 9" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/wy2NLmRB/Whats-App-Image-2025-07-04-at-3-17-54-PM-2.jpg" alt="Maitra memories 10" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/xccmNqf0/Whats-App-Image-2025-07-04-at-3-17-55-PM.jpg" alt="Maitra memories 11" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/hh4TgpNQ/Whats-App-Image-2025-07-04-at-3-17-55-PM-1.jpg" alt="Maitra memories 12" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/yWf9N0zQ/Whats-App-Image-2025-07-04-at-3-17-55-PM-2.jpg" alt="Maitra memories 13" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/WdZJSKqC/Whats-App-Image-2025-07-04-at-3-17-56-PM.jpg" alt="Maitra memories 14" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/56TCB1y8/Whats-App-Image-2025-07-04-at-3-17-56-PM-1.jpg" alt="Maitra memories 15" class="rounded-lg gallery-img w-full h-full object-cover">
-                            <img src="https://i.postimg.cc/PLkv74mx/Whats-App-Image-2025-07-04-at-3-17-57-PM.jpg" alt="Maitra memories 16" class="rounded-lg gallery-img w-full h-full object-cover">
-                        </div>
+                <div class="bg-white p-6 rounded-xl card-shadow fade-in">
+                    <p class="font-bold text-red-800 text-lg mb-2">2022-25</p>
+                    <h3 class="font-playfair text-2xl font-bold text-gray-900">Mastering the Craft: Meitra Hospital</h3>
+                    <p class="mt-2 text-gray-600">Spent three impactful years at <span class="font-semibold">Meitra Hospital, Calicut</span>, earning her <span class="font-semibold">IDCCM</span> diploma and leaving behind a team that adored her empathy, skill, and leadership.</p>
+                    <!-- Image gallery for Maitra memories - Adjusted for better flow with 16 images -->
+                    <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                        <img src="https://i.postimg.cc/wTYwnzvn/Meitra-time-1.jpg" alt="Maitra memories 1" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/kMbjjGnx/Whats-App-Image-2025-07-04-at-3-17-50-PM.jpg" alt="Maitra memories 2" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/1gxDQPZy/Whats-App-Image-2025-07-04-at-3-17-51-PM.jpg" alt="Maitra memories 3" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/ykbFLcQg/Whats-App-Image-2025-07-04-at-3-17-51-PM-1.jpg" alt="Maitra memories 4" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/BX6T5Mgf/Whats-App-Image-2025-07-04-at-3-17-51-PM-2.jpg" alt="Maitra memories 5" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/njp7Xkz5/Whats-App-Image-2025-07-04-at-3-17-52-PM.jpg" alt="Maitra memories 6" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/VSjnsTYn/Whats-App-Image-2025-07-04-at-3-17-53-PM.jpg" alt="Maitra memories 7" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/684CgqgH/Whats-App-Image-2025-07-04-at-3-17-53-PM-1.jpg" alt="Maitra memories 8" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/9wf7pQyY/Whats-App-Image-2025-07-04-at-3-17-54-PM.jpg" alt="Maitra memories 9" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/wy2NLmRB/Whats-App-Image-2025-07-04-at-3-17-54-PM-2.jpg" alt="Maitra memories 10" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/xccmNqf0/Whats-App-Image-2025-07-04-at-3-17-55-PM.jpg" alt="Maitra memories 11" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/hh4TgpNQ/Whats-App-Image-2025-07-04-at-3-17-55-PM-1.jpg" alt="Maitra memories 12" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/yWf9N0zQ/Whats-App-Image-2025-07-04-at-3-17-55-PM-2.jpg" alt="Maitra memories 13" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/WdZJSKqC/Whats-App-Image-2025-07-04-at-3-17-56-PM.jpg" alt="Maitra memories 14" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/56TCB1y8/Whats-App-Image-2025-07-04-at-3-17-56-PM-1.jpg" alt="Maitra memories 15" class="rounded-lg gallery-img w-full h-full object-cover">
+                        <img src="https://i.postimg.cc/PLkv74mx/Whats-App-Image-2025-07-04-at-3-17-57-PM.jpg" alt="Maitra memories 16" class="rounded-lg gallery-img w-full h-full object-cover">
                     </div>
                 </div>
 
                 <!-- Milestone 5: MVR -->
-                <div class="pl-12 relative timeline-item fade-in">
-                    <div class="timeline-year-badge">July 2025</div>
-                    <div class="bg-white p-6 rounded-xl card-shadow">
-                        <h3 class="font-playfair text-2xl font-bold text-gray-900">A New Horizon: The Specialist at MVR</h3>
-                        <p class="mt-2 text-gray-600">Joined the prestigious <span class="font-semibold">MVR Cancer Centre</span> as a <span class="font-semibold">Specialist in Critical Care</span>. A new beginning, a senior role, and a testament to years of expertise and unwavering dedication.</p>
-                        <!-- Image gallery for MVR milestone -->
-                        <div class="mt-6 grid grid-cols-1 md:grid-cols-1 gap-4">
-                            <img src="https://i.postimg.cc/rF88GKWp/Whats-App-Image-2025-07-04-at-4-57-46-PM.jpg" alt="Welcome to MVR" class="rounded-lg gallery-img w-full h-full object-cover">
-                        </div>
+                <div class="bg-white p-6 rounded-xl card-shadow fade-in">
+                    <p class="font-bold text-red-800 text-lg mb-2">July 2025</p>
+                    <h3 class="font-playfair text-2xl font-bold text-gray-900">A New Horizon: The Specialist at MVR</h3>
+                    <p class="mt-2 text-gray-600">Joined the prestigious <span class="font-semibold">MVR Cancer Centre</span> as a <span class="font-semibold">Specialist in Critical Care</span>. A new beginning, a senior role, and a testament to years of expertise and unwavering dedication.</p>
+                    <!-- Image gallery for MVR milestone -->
+                    <div class="mt-6 grid grid-cols-1 md:grid-cols-1 gap-4">
+                        <img src="https://i.postimg.cc/rF88GKWp/Whats-App-Image-2025-07-04-at-4-57-46-PM.jpg" alt="Welcome to MVR" class="rounded-lg gallery-img w-full h-full object-cover">
                     </div>
                 </div>
             </div>

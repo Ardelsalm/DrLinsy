@@ -9,10 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
     <style>
-        /* Base font for the body */
+        /* Base font for the body and smooth scrolling */
         body {
             font-family: 'Inter', sans-serif;
             background-color: #fdfcfb; /* Light off-white background */
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
         }
         /* Specific font for Playfair Display */
         .font-playfair {
@@ -26,27 +27,37 @@
         /* Custom CSS for the timeline year badge */
         .timeline-year-badge {
             position: absolute;
-            /* Position to the left of the timeline line. ml-32 on parent provides space. */
-            left: -100px; 
+            /* Default position for mobile, adjusted for better visibility */
+            left: -80px; 
             top: 0; /* Align with the top of the timeline item */
             transform: translateY(-50%); /* Vertically center the badge on the timeline dot */
             background-color: #a32a2a; /* Red background */
             color: white; /* White text */
-            padding: 6px 12px; /* Padding inside the badge */
+            padding: 4px 8px; /* Smaller padding for mobile */
             border-radius: 9999px; /* Fully rounded corners */
             font-weight: bold;
-            font-size: 0.9rem; /* Slightly smaller font for the year */
+            font-size: 0.8rem; /* Slightly smaller font for the year on mobile */
             z-index: 15; /* Ensure it's above other elements */
             white-space: nowrap; /* Prevent text wrapping */
-            min-width: 70px; /* Ensure consistent width for years */
+            min-width: 60px; /* Ensure consistent width for years */
             text-align: center;
+        }
+
+        /* Responsive adjustments for larger screens */
+        @media (min-width: 768px) { /* md breakpoint */
+            .timeline-year-badge {
+                left: -100px; /* Original position for larger screens */
+                padding: 6px 12px; /* Original padding */
+                font-size: 0.9rem; /* Original font size */
+                min-width: 70px; /* Original min-width */
+            }
         }
 
         /* Styling for the timeline item's circular marker */
         .timeline-item::before {
             content: ''; /* Required for pseudo-elements */
             position: absolute; /* Absolute positioning relative to parent */
-            /* Adjust this to align better with the line and the new year badge */
+            /* Adjusted for mobile to align with the new timeline margin */
             left: -20px; 
             top: 0; /* Align with the top of the item */
             width: 20px; /* Size of the circle */
@@ -76,13 +87,49 @@
             z-index: 20; /* Ensures it's above other images when enlarged */
             box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Adds a stronger shadow */
         }
+
+        /* Styles for fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in.appear {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Scroll-to-top button styles */
+        #scrollToTopBtn {
+            display: none; /* Hidden by default */
+            position: fixed; /* Fixed position */
+            bottom: 20px; /* 20px from the bottom */
+            right: 20px; /* 20px from the right */
+            z-index: 99; /* Ensure it's above other content */
+            border: none; /* Remove borders */
+            outline: none; /* Remove outline */
+            background-color: #a32a2a; /* Red background */
+            color: white; /* White text */
+            cursor: pointer; /* Add a mouse pointer on hover */
+            padding: 15px; /* Some padding */
+            border-radius: 50%; /* Rounded shape */
+            font-size: 18px; /* Increase font size */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Subtle shadow */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #8b1a1a; /* Darker red on hover */
+            transform: translateY(-3px); /* Slight lift on hover */
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
     <div class="max-w-6xl mx-auto p-4 sm:p-8">
         <!-- Header Section -->
-        <header class="text-center mb-16">
+        <header class="text-center mb-16 fade-in">
             <h1 class="font-playfair text-5xl sm:text-7xl font-bold text-gray-900">Celebrating Dr. Linsy A. S</h1>
             <p class="text-xl sm:text-2xl text-gray-600 mt-3">MBBS, CTCCM, IDCCM</p>
             <p class="font-great-vibes mt-4 text-4xl text-red-800">An Incredible Journey of a Healer</p>
@@ -91,11 +138,11 @@
         <main>
             <!-- Timeline Section -->
             <!-- The timeline is created using a left border and absolutely positioned pseudo-elements for markers -->
-            <!-- Increased ml to provide more space for the new year badges -->
-            <div class="relative border-l-2 border-red-800/50 ml-32"> 
+            <!-- Adjusted ml for better mobile responsiveness -->
+            <div class="relative border-l-2 border-red-800/50 ml-10 md:ml-32"> 
                 
                 <!-- Milestone 1: Lakeshore -->
-                <div class="mb-16 pl-12 relative timeline-item">
+                <div class="mb-16 pl-12 relative timeline-item fade-in">
                     <!-- Year badge positioned to the left of the timeline line -->
                     <div class="timeline-year-badge">2017</div> 
                     <div class="bg-white p-6 rounded-xl card-shadow">
@@ -112,7 +159,7 @@
                 </div>
 
                 <!-- Milestone 2: Motherhood -->
-                <div class="mb-16 pl-12 relative timeline-item">
+                <div class="mb-16 pl-12 relative timeline-item fade-in">
                     <div class="timeline-year-badge">2019</div>
                     <div class="bg-white p-6 rounded-xl card-shadow">
                         <h3 class="font-playfair text-2xl font-bold text-gray-900">A New Chapter: Our Family Begins</h3>
@@ -125,7 +172,7 @@
                 </div>
                 
                 <!-- Milestone 3: KIMS -->
-                <div class="mb-16 pl-12 relative timeline-item">
+                <div class="mb-16 pl-12 relative timeline-item fade-in">
                     <div class="timeline-year-badge">2021</div>
                     <div class="bg-white p-6 rounded-xl card-shadow">
                         <h3 class="font-playfair text-2xl font-bold text-gray-900">Growth and Expertise: KIMS, Trivandrum</h3>
@@ -140,7 +187,7 @@
                 </div>
 
                 <!-- Milestone 4: Meitra -->
-                <div class="mb-16 pl-12 relative timeline-item">
+                <div class="mb-16 pl-12 relative timeline-item fade-in">
                     <div class="timeline-year-badge">2022-25</div>
                     <div class="bg-white p-6 rounded-xl card-shadow">
                         <h3 class="font-playfair text-2xl font-bold text-gray-900">Mastering the Craft: Meitra Hospital</h3>
@@ -168,7 +215,7 @@
                 </div>
 
                 <!-- Milestone 5: MVR -->
-                <div class="pl-12 relative timeline-item">
+                <div class="pl-12 relative timeline-item fade-in">
                     <div class="timeline-year-badge">July 2025</div>
                     <div class="bg-white p-6 rounded-xl card-shadow">
                         <h3 class="font-playfair text-2xl font-bold text-gray-900">A New Horizon: The Specialist at MVR</h3>
@@ -183,7 +230,7 @@
         </main>
 
         <!-- Footer/Personal Note -->
-        <footer class="mt-20 text-center bg-gradient-to-r from-red-50 to-amber-50 p-8 rounded-xl card-shadow">
+        <footer class="mt-20 text-center bg-gradient-to-r from-red-50 to-amber-50 p-8 rounded-xl card-shadow fade-in">
             <h3 class="font-great-vibes text-5xl font-bold text-red-900">My Dearest Linsy,</h3>
             <p class="mt-4 max-w-3xl mx-auto text-gray-700 text-lg">
                 Watching you navigate your demanding career and our beautiful family life with such strength and grace has been my greatest privilege. You are a brilliant doctor, a phenomenal mother, and the most incredible partner. Your dedication inspires me every single day. I am bursting with pride and love for you. Congratulations on this amazing new chapter.
@@ -191,7 +238,51 @@
             <p class="mt-6 font-semibold text-xl text-red-800">- With love, Saly</p>
         </footer>
 
+        <!-- Scroll-to-top button -->
+        <button onclick="topFunction()" id="scrollToTopBtn" title="Go to top">↑</button>
+
     </div>
 
+    <script>
+        // Get the button
+        let mybutton = document.getElementById("scrollToTopBtn");
+
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                mybutton.style.display = "block";
+            } else {
+                mybutton.style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        }
+
+        // Intersection Observer for fade-in elements
+        document.addEventListener("DOMContentLoaded", () => {
+            const fadeElements = document.querySelectorAll(".fade-in");
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("appear");
+                        observer.unobserve(entry.target); // Stop observing once it's appeared
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
 </body>
 </html>
